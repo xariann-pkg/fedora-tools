@@ -1,19 +1,18 @@
 # .packit.yaml
 packages:
   fedora-update:
-    specfile_path: fedora-update.spec
-    
+    specfile_path: fedora-update/fedora-update.spec
     files_to_sync:
-      - fedora-update.spec
-      - fedora-update.sh
-      - fedora-update.desktop
-      - fedora-update-tray.py
-      - fedora-update-tray.desktop
-      - fedora-update-tray.service
-      - fedora-updates.png
-      - fedora-update-check
-      - fedora-update-check.service
-      - fedora-update-check.timer
+      - fedora-update/
+    paths:
+      - fedora-update/
+
+  boot-windows:
+    specfile_path: boot-windows/boot-windows.spec
+    files_to_sync:
+      - boot-windows/
+    paths:
+      - boot-windows/
 
 jobs:
   - job: copr_build
