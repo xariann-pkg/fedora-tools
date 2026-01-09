@@ -9,7 +9,11 @@ Emulates arch-update by updating your system, then cleans up old dependencies an
 systemctl --user enable --now fedora-update-tray.service
 ```
 
-This will also add a system tray icon if your Desktop Environment or Window Manager support it.
+To make sure the updates are checked every hour also enable the timer:
+
+```bash
+systemctl --user enable --now fedora-update-check.timer
+```
 
 ## Boot Windows
 A script that finds your Windows boot entry and then asks you if you want to reboot to Windows.
