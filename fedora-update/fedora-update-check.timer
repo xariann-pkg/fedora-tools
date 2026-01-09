@@ -1,0 +1,10 @@
+[Unit]
+Description=Run fedora-update-check hourly
+
+[Timer]
+OnBootSec=30min
+OnUnitActiveSec=1h
+Unit=fedora-update-check.service
+
+[Install]
+WantedBy=timers.target

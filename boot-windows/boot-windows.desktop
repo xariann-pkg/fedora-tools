@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Boot Windows
+Comment=Reboot into Windows via UEFI BootNext
+Exec=boot-windows
+Icon=windows
+Terminal=false
+Categories=System;
+

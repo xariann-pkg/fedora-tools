@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Fedora Update Tray
+Comment=Tray helper that checks for Fedora updates
+Exec=fedora-update-tray
+Icon=fedora-logo-icon
+Terminal=false
+Categories=System;
+X-GNOME-Autostart-enabled=true

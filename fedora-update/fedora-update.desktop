@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Fedora Update
+Comment=Interactive DNF update and cleanup helper
+Exec=/usr/bin/fedora-update
+Terminal=true
+Type=Application
+Categories=System;
+Icon=fedora-logo-icon
+
