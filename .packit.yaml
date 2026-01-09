@@ -1,7 +1,7 @@
 # .packit.yaml
 packages:
   fedora-update:
-    specfile_path: fedora-update/fedora-update.spec
+    specfile_path: fedora-update.spec
     upstream_tag_template: "{version}"
     # This tells Packit to only look inside this folder for this package
     paths:
@@ -11,7 +11,7 @@ packages:
       - .packit.yaml
 
   boot-windows:
-    specfile_path: boot-windows/boot-windows.spec
+    specfile_path: boot-windows.spec
     upstream_tag_template: "{version}"
     paths:
       - boot-windows/
