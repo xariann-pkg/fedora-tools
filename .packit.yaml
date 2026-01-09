@@ -1,6 +1,4 @@
 # .packit.yaml
-packager: Xariann <xariann.widely103@passmail.com>
-
 packages:
   fedora-update:
     specfile_path: fedora-update.spec
