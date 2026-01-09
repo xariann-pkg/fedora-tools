@@ -7,7 +7,7 @@ packages:
     paths:
       - fedora-update/
     files_to_sync:
-      - fedora-update/fedora-update.spec
+      - fedora-update.spec
       - .packit.yaml
 
   boot-windows:
@@ -16,7 +16,7 @@ packages:
     paths:
       - boot-windows/
     files_to_sync:
-      - boot-windows/boot-windows.spec
+      - boot-windows.spec
       - .packit.yaml
 
 jobs:
