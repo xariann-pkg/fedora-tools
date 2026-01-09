@@ -26,26 +26,25 @@ Requires:       python3-pillow
 %description
 Interactive helper that checks for updates, runs dnf upgrade, autoremove
 and cache cleanup, accessible from the desktop menu, plus an optional
-tray helper that periodically checks for updates.
+tray helper that periodically checks for updates. [cite: 10, 12]
 
 %prep
 %autosetup -c -T
 
 %build
-# Nothing to build.
 
 %install
 rm -rf %{buildroot}
 
-install -D -m 0755 %{SOURCE0} %{buildroot}%{_bindir}/fedora-update
-install -D -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/applications/fedora-update.desktop
-install -D -m 0755 %{SOURCE2} %{buildroot}%{_bindir}/fedora-update-tray
-install -D -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/applications/fedora-update-tray.desktop
-install -D -m 0644 %{SOURCE4} %{buildroot}%{_userunitdir}/fedora-update-tray.service
-install -D -m 0644 %{SOURCE5} %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/fedora-updates.png
-install -D -m 0755 %{SOURCE6} %{buildroot}%{_bindir}/fedora-update-check
-install -D -m 0644 %{SOURCE7} %{buildroot}%{_userunitdir}/fedora-update-check.service
-install -D -m 0644 %{SOURCE8} %{buildroot}%{_userunitdir}/fedora-update-check.timer
+install -D -m 0755 %{_sourcedir}/fedora-update.sh %{buildroot}%{_bindir}/fedora-update
+install -D -m 0644 %{_sourcedir}/fedora-update.desktop %{buildroot}%{_datadir}/applications/fedora-update.desktop
+install -D -m 0755 %{_sourcedir}/fedora-update-tray.py %{buildroot}%{_bindir}/fedora-update-tray
+install -D -m 0644 %{_sourcedir}/fedora-update-tray.desktop %{buildroot}%{_datadir}/applications/fedora-update-tray.desktop
+install -D -m 0644 %{_sourcedir}/fedora-update-tray.service %{buildroot}%{_userunitdir}/fedora-update-tray.service
+install -D -m 0644 %{_sourcedir}/fedora-updates.png %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/fedora-updates.png
+install -D -m 0755 %{_sourcedir}/fedora-update-check %{buildroot}%{_bindir}/fedora-update-check
+install -D -m 0644 %{_sourcedir}/fedora-update-check.service %{buildroot}%{_userunitdir}/fedora-update-check.service
+install -D -m 0644 %{_sourcedir}/fedora-update-check.timer %{buildroot}%{_userunitdir}/fedora-update-check.timer
 
 %files
 %{_bindir}/fedora-update

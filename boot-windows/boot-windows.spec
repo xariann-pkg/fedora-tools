@@ -4,7 +4,7 @@ Release:        %autorelease
 Summary:        Reboot into Windows via UEFI BootNext
 
 License:        GPL-3.0-or-later
-URL:            https://example.invalid/boot-windows
+URL:            https://github.com/xariann-pkg/fedora-tools
 Source0:        boot-windows.sh
 Source1:        boot-windows.desktop
 
@@ -15,23 +15,15 @@ Requires:       efibootmgr zenity systemd desktop-file-utils libnotify
 Small helper to reboot into the Windows Boot Manager entry using UEFI BootNext.
 
 %prep
-# nothing to do
+%autosetup -c -T
 
 %build
-# nothing to build
 
 %install
 rm -rf %{buildroot}
 
-# Script -> /usr/bin/boot-windows
-install -D -m 0755 %{SOURCE0} %{buildroot}%{_bindir}/boot-windows
-
-# Desktop file -> /usr/share/applications/boot-windows.desktop
-install -D -m 0644 %{SOURCE1} \
-    %{buildroot}%{_datadir}/applications/boot-windows.desktop
-
-# Validate desktop file (non-fatal)
-desktop-file-validate %{buildroot}%{_datadir}/applications/boot-windows.desktop || :
+install -D -m 0755 %{_sourcedir}/boot-windows.sh %{buildroot}%{_bindir}/boot-windows
+install -D -m 0644 %{_sourcedir}/boot-windows.desktop %{buildroot}%{_datadir}/applications/boot-windows.desktop
 
 %files
 %{_bindir}/boot-windows
@@ -39,4 +31,3 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/boot-windows.desktop 
 
 %changelog
 %autochangelog
-

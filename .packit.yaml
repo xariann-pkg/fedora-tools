@@ -1,37 +1,33 @@
 # .packit.yaml
 packages:
   fedora-update:
-    specfile_path: fedora-update.spec
-    upstream_tag_template: "{version}"
+    specfile_path: fedora-update/fedora-update.spec
+    upstream_tag_template: "fedora-update-{version}"
+    # This tells Packit to only look inside this folder for this package
     paths:
       - fedora-update/
     files_to_sync:
-      - fedora-update.spec
-      - fedora-update.sh
-      - fedora-update.desktop
-      - fedora-update-tray.py
-      - fedora-update-tray.desktop
-      - fedora-update-tray.service
-      - fedora-updates.png
-      - fedora-update-check
-      - fedora-update-check.service
-      - fedora-update-check.timer
+      - fedora-update/fedora-update.spec
+      - .packit.yaml
 
   boot-windows:
-    specfile_path: boot-windows.spec
-    upstream_tag_template: "{version}"
+    specfile_path: boot-windows/boot-windows.spec
+    upstream_tag_template: "boot-windows-{version}"
     paths:
       - boot-windows/
     files_to_sync:
-      - boot-windows.spec
-      - boot-windows.desktop
-      - boot-windows.sh
+      - boot-windows/boot-windows.spec
+      - .packit.yaml
 
 jobs:
   - job: copr_build
     trigger: release
-    branch: main
     owner: xariann
     project: tools
+    targets:
+      - fedora-all
+
+  - job: copr_build
+    trigger: pull_request
     targets:
       - fedora-all
