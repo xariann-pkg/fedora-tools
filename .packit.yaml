@@ -2,7 +2,7 @@
 packages:
   fedora-update:
     specfile_path: fedora-update.spec
-    upstream_tag_template: "fedora-update-{version}"
+    upstream_tag_template: "{version}"
     paths:
       - fedora-update/
     files_to_sync:
@@ -19,7 +19,7 @@ packages:
 
   boot-windows:
     specfile_path: boot-windows.spec
-    upstream_tag_template: "boot-windows-{version}"
+    upstream_tag_template: "{version}"
     paths:
       - boot-windows/
     files_to_sync:
