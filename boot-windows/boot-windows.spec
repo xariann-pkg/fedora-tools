@@ -1,6 +1,6 @@
 Name:           boot-windows
-Version:        1.0
-Release:        1%{?dist}
+Version:        1.1
+Release:        %autorelease
 Summary:        Reboot into Windows via UEFI BootNext
 
 License:        GPL-3.0-or-later
@@ -38,6 +38,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/boot-windows.desktop 
 %{_datadir}/applications/boot-windows.desktop
 
 %changelog
-* Sun Jan 04 2026 Xariann <xariann.widely103@passmail.com> - 1.0-1
-- Initial package
+%autochangelog
 

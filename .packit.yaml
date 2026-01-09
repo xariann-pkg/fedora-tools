@@ -2,6 +2,7 @@
 packages:
   fedora-update:
     specfile_path: fedora-update.spec
+    upstream_tag_template: "fedora-update-{version}"
     paths:
       - fedora-update/
     files_to_sync:
@@ -18,6 +19,7 @@ packages:
 
   boot-windows:
     specfile_path: boot-windows.spec
+    upstream_tag_template: "boot-windows-{version}"
     paths:
       - boot-windows/
     files_to_sync:
@@ -27,7 +29,7 @@ packages:
 
 jobs:
   - job: copr_build
-    trigger: commit
+    trigger: release
     branch: main
     owner: xariann
     project: tools
