@@ -17,6 +17,3 @@ systemctl --user enable --now fedora-update-check.timer
 
 ## Boot Windows
 A script that finds your Windows boot entry and then asks you if you want to reboot to Windows.
-
-## Nautiterm
-Adds an option to GNOME nautilus to open any terminal of choice with the right click contextual menu. This is based on the work of Mika Wahlroos  in this repo https://github.com/mwahlroos/Nautiterm. It is not my work, I just packaged it for Fedora.
