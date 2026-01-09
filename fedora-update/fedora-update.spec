@@ -58,4 +58,5 @@ install -D -m 0644 %{SOURCE8} %{buildroot}%{_userunitdir}/fedora-update-check.ti
 %{_userunitdir}/fedora-update-check.timer
 %{_datadir}/icons/hicolor/32x32/apps/fedora-updates.png
 
+%changelog
 %autochangelog
