@@ -1,5 +1,5 @@
 Name:           boot-windows
-Version:        1.3.4
+Version:        1.3.5
 Release:        %autorelease
 Summary:        Reboot into Windows via UEFI BootNext
 
@@ -33,8 +33,6 @@ install -D -m 0644 %{SOURCE1} \
     %{buildroot}%{_datadir}/applications/boot-windows.desktop
 
 %files
-%license LICENSE
-%doc README.md
 %{_bindir}/boot-windows
 %{_datadir}/applications/boot-windows.desktop
 
