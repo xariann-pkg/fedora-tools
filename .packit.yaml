@@ -1,9 +1,7 @@
-# .packit.yaml
 packages:
   fedora-update:
     specfile_path: fedora-update.spec
-    upstream_tag_template: "{version}"
-    # This tells Packit to only look inside this folder for this package
+    upstream_tag_template: "fedora-update-{version}"
     paths:
       - fedora-update/
     files_to_sync:
@@ -12,7 +10,7 @@ packages:
 
   boot-windows:
     specfile_path: boot-windows.spec
-    upstream_tag_template: "{version}"
+    upstream_tag_template: "boot-windows-{version}"
     paths:
       - boot-windows/
     files_to_sync:
@@ -20,14 +18,22 @@ packages:
       - .packit.yaml
 
 jobs:
+  # fedora-update only
   - job: copr_build
     trigger: release
     owner: xariann
     project: tools
+    packages:
+      - fedora-update
     targets:
       - fedora-all
 
+  # boot-windows only
   - job: copr_build
-    trigger: pull_request
+    trigger: release
+    owner: xariann
+    project: tools
+    packages:
+      - boot-windows
     targets:
       - fedora-all
