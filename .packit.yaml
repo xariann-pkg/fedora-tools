@@ -18,9 +18,9 @@ packages:
       - .packit.yaml
 
 jobs:
-  # fedora-update only
   - job: copr_build
     trigger: release
+    upstream_tag_include: "^fedora-update-.*$"
     owner: xariann
     project: tools
     packages:
@@ -28,9 +28,9 @@ jobs:
     targets:
       - fedora-all
 
-  # boot-windows only
   - job: copr_build
     trigger: release
+    upstream_tag_include: "^boot-windows-.*$"
     owner: xariann
     project: tools
     packages:
