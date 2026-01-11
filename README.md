@@ -2,7 +2,7 @@
 
 A personal collection of Fedora rpms. COPR available: https://copr.fedorainfracloud.org/coprs/xariann/tools/
 
-## Fedora Update
+## Fedora Update [![Copr build status](https://copr.fedorainfracloud.org/coprs/xariann/tools/package/boot-windows/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/xariann/tools/package/boot-windows/)
 Emulates arch-update by updating your system, then cleans up old dependencies and cache. Once installed enable the systemd service for the system tray icon:
 
 ```bash
@@ -15,5 +15,5 @@ To make sure the updates are checked every hour also enable the timer:
 systemctl --user enable --now fedora-update-check.timer
 ```
 
-## Boot Windows
+## Boot Windows [![Copr build status](https://copr.fedorainfracloud.org/coprs/xariann/tools/package/boot-windows/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/xariann/tools/package/boot-windows/)
 A script that finds your Windows boot entry and then asks you if you want to reboot to Windows.
