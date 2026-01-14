@@ -1,5 +1,5 @@
 Name:           boot-windows
-Version:        1.3.5
+Version:        1.4
 Release:        %autorelease
 Summary:        Reboot into Windows via UEFI BootNext
 
@@ -9,28 +9,33 @@ Source0:        boot-windows.sh
 Source1:        boot-windows.desktop
 
 BuildArch:      noarch
-Requires:       efibootmgr
-Requires:       zenity
+Requires:       efibootmgr 
+Requires:       zenity 
 Requires:       systemd
-Requires:       desktop-file-utils
-Requires:       libnotify
+Requires:       desktop-file-utils 
+Requires:       libnotify 
 
 %description
-Small helper to reboot into the Windows Boot Manager entry using UEFI BootNext.
+Small helper to reboot into the Windows Boot Manager entry using UEFI BootNext. 
 
 %prep
 %autosetup -c -T
+# Copy sources to the current build directory
+cp %{SOURCE0} %{SOURCE1} .
 
 %build
+# No build steps needed for a shell script
 
 %install
-rm -rf %{buildroot}
+# Create directories
+mkdir -p %{buildroot}%{_bindir}
+mkdir -p %{buildroot}%{_datadir}/applications
 
-install -D -m 0755 %{SOURCE0} \
-    %{buildroot}%{_bindir}/boot-windows
+# Install the script. We use 'install' to set permissions (0755)
+install -p -m 0755 boot-windows.sh %{buildroot}%{_bindir}/boot-windows
 
-install -D -m 0644 %{SOURCE1} \
-    %{buildroot}%{_datadir}/applications/boot-windows.desktop
+# Install the desktop entry
+install -p -m 0644 boot-windows.desktop %{buildroot}%{_datadir}/applications/boot-windows.desktop
 
 %files
 %{_bindir}/boot-windows
