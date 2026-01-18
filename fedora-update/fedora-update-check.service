@@ -3,4 +3,7 @@ Description=Check for Fedora updates and notify
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/fedora-update-check
+ExecStart=/usr/bin/fedora-update-check.sh
+
+[Install]
+WantedBy=default.target

@@ -9,12 +9,13 @@ from PIL import Image
 
 FEDORA_ICON_OK = "/usr/share/icons/hicolor/32x32/apps/fedora-logo-icon.png"
 
-# Use Ghostty to run fedora-update
-TERMINAL_CMD = ["ghostty", "-e"]
+# Use xdg-terminal-exec to remain terminal-agnostic
+TERMINAL_CMD = ["xdg-terminal-exec"]
 
 
 def run_fedora_update():
-    cmd = TERMINAL_CMD + ["fedora-update"]
+    # Use absolute path to ensure the script is found
+    cmd = TERMINAL_CMD + ["/usr/bin/fedora-update"]
     subprocess.Popen(cmd)
 
 
