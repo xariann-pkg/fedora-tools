@@ -1,5 +1,5 @@
 Name:           fedora-update
-Version:        1.3
+Version:        1.4
 Release:        %autorelease
 Summary:        Interactive DNF update and cleanup helper
 
@@ -30,6 +30,8 @@ tray helper that periodically checks for updates.
 
 %prep
 %autosetup -c -T
+# Ensure Unix line endings for all shell scripts
+find . -type f -name "*.sh" -exec sed -i 's/\r$//' {} +
 
 %build
 # nothing to build
