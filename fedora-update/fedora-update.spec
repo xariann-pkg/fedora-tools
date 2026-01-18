@@ -22,6 +22,7 @@ Requires:       dnf
 Requires:       python3
 Requires:       python3-pystray
 Requires:       python3-pillow
+Requires:       xdg-terminal-exec
 
 %description
 Interactive helper that checks for updates, runs dnf upgrade, autoremove

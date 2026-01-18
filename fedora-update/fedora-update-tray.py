@@ -9,14 +9,18 @@ from PIL import Image
 
 FEDORA_ICON_OK = "/usr/share/icons/hicolor/32x32/apps/fedora-logo-icon.png"
 
-# Use xdg-terminal-exec to remain terminal-agnostic
-TERMINAL_CMD = ["xdg-terminal-exec"]
+# Use absolute path to ensure systemd user services can find the binary
+TERMINAL_CMD = ["/usr/bin/xdg-terminal-exec"]
 
 
 def run_fedora_update():
     # Use absolute path to ensure the script is found
     cmd = TERMINAL_CMD + ["/usr/bin/fedora-update"]
-    subprocess.Popen(cmd)
+    try:
+        subprocess.Popen(cmd)
+    except FileNotFoundError:
+        # Fallback if xdg-terminal-exec is not at the absolute path
+        subprocess.Popen(["xdg-terminal-exec", "/usr/bin/fedora-update"])
 
 
 def load_icon(path):
