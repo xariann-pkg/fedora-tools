@@ -1,5 +1,5 @@
 Name:           fedora-update
-Version:        1.4
+Version:        1.4.1
 Release:        %autorelease
 Summary:        Interactive DNF update and cleanup helper
 
@@ -11,7 +11,7 @@ Source2:        fedora-update-tray.py
 Source3:        fedora-update-tray.desktop
 Source4:        fedora-update-tray.service
 Source5:        fedora-updates.png
-Source6:        fedora-update-check
+Source6:        fedora-update-check.sh
 Source7:        fedora-update-check.service
 Source8:        fedora-update-check.timer
 
@@ -30,7 +30,6 @@ tray helper that periodically checks for updates.
 
 %prep
 %autosetup -c -T
-# Ensure Unix line endings for all shell scripts
 find . -type f -name "*.sh" -exec sed -i 's/\r$//' {} +
 
 %build
@@ -39,38 +38,15 @@ find . -type f -name "*.sh" -exec sed -i 's/\r$//' {} +
 %install
 rm -rf %{buildroot}
 
-# Main update helper
-install -D -m 0755 %{SOURCE0} \
-    %{buildroot}%{_bindir}/fedora-update
-
-install -D -m 0644 %{SOURCE1} \
-    %{buildroot}%{_datadir}/applications/fedora-update.desktop
-
-# Tray helper script
-install -D -m 0755 %{SOURCE2} \
-    %{buildroot}%{_bindir}/fedora-update-tray
-
-# Tray helper desktop
-install -D -m 0644 %{SOURCE3} \
-    %{buildroot}%{_datadir}/applications/fedora-update-tray.desktop
-
-# Tray systemd user service
-install -D -m 0644 %{SOURCE4} \
-    %{buildroot}%{_userunitdir}/fedora-update-tray.service
-
-# Available-updates tray icon
-install -D -m 0644 %{SOURCE5} \
-    %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/fedora-updates.png
-
-# Update check helper
-install -D -m 0755 %{SOURCE6} \
-    %{buildroot}%{_bindir}/fedora-update-check.sh
-
-# Update check systemd user units
-install -D -m 0644 %{SOURCE7} \
-    %{buildroot}%{_userunitdir}/fedora-update-check.service
-install -D -m 0644 %{SOURCE8} \
-    %{buildroot}%{_userunitdir}/fedora-update-check.timer
+install -D -m 0755 %{SOURCE0} %{buildroot}%{_bindir}/fedora-update
+install -D -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/applications/fedora-update.desktop
+install -D -m 0755 %{SOURCE2} %{buildroot}%{_bindir}/fedora-update-tray
+install -D -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/applications/fedora-update-tray.desktop
+install -D -m 0644 %{SOURCE4} %{buildroot}%{_userunitdir}/fedora-update-tray.service
+install -D -m 0644 %{SOURCE5} %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/fedora-updates.png
+install -D -m 0755 %{SOURCE6} %{buildroot}%{_bindir}/fedora-update-check.sh
+install -D -m 0644 %{SOURCE7} %{buildroot}%{_userunitdir}/fedora-update-check.service
+install -D -m 0644 %{SOURCE8} %{buildroot}%{_userunitdir}/fedora-update-check.timer
 
 %files
 %{_bindir}/fedora-update
@@ -85,4 +61,3 @@ install -D -m 0644 %{SOURCE8} \
 
 %changelog
 %autochangelog
-
