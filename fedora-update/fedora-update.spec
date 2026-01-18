@@ -64,7 +64,7 @@ install -D -m 0644 %{SOURCE5} \
 
 # Update check helper
 install -D -m 0755 %{SOURCE6} \
-    %{buildroot}%{_bindir}/fedora-update-check
+    %{buildroot}%{_bindir}/fedora-update-check.sh
 
 # Update check systemd user units
 install -D -m 0644 %{SOURCE7} \
@@ -77,7 +77,7 @@ install -D -m 0644 %{SOURCE8} \
 %{_datadir}/applications/fedora-update.desktop
 %{_bindir}/fedora-update-tray
 %{_datadir}/applications/fedora-update-tray.desktop
-%{_bindir}/fedora-update-check
+%{_bindir}/fedora-update-check.sh
 %{_userunitdir}/fedora-update-tray.service
 %{_userunitdir}/fedora-update-check.service
 %{_userunitdir}/fedora-update-check.timer
