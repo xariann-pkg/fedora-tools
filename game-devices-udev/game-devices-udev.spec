@@ -48,5 +48,4 @@ chmod 0644 %{buildroot}%{_prefix}/lib/modules-load.d/uinput.conf
 %{_prefix}/lib/modules-load.d/uinput.conf
 
 %changelog
-* Fri Jan 24 2025 User <user@localhost> - 0.24-1
-- Initial package
+%autochangelog
