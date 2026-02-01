@@ -1,11 +1,14 @@
+# This gets rewritten automatically by .copr/Makefile at build time
+%global snapshotdate  SNAPSHOTDATE_PLACEHOLDER
+
 Name:           declaro
-Version:        1.0.4
+Version:        0.%{snapshotdate}
 Release:        %autorelease
 Summary:        Declarative wrapper around your package manager
 
 License:        MIT
 URL:            https://github.com/mantinhas/declaro
-Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
+Source0:        %{url}/archive/refs/heads/main.tar.gz#/declaro-main.tar.gz
 
 BuildArch:      noarch
 
@@ -27,7 +30,7 @@ manager. It lets you define a clean "reset state" for your system and
 provides tools to keep your system aligned with that state.
 
 %prep
-%autosetup -n declaro-%{version}
+%autosetup -n declaro-main
 
 %build
 # Shell scripts only, nothing to build
